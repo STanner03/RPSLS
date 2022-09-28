@@ -20,11 +20,10 @@ Display # of players
     display game type between player vs AI or player vs player
     display turn of player
 Display Rules of game:
-    display available options-[Rock, Paper, Scissors, Lizard, Spock] for each game round 
-    display what each option-[Rock, Paper, Scissors, Lizard, Spock] wins or loses against for each game round 
-    display player chosen choice
-        if the choice is invalid, display the game options-[] again for player to choose again
+    <!-- display available options-[Rock, Paper, Scissors, Lizard, Spock] for each game round  -->
+    <!-- display what each option-[Rock, Paper, Scissors, Lizard, Spock] wins or loses against for each game round  -->
+    <!-- display player chosen choice
+        if the choice is invalid, display the game options-[] again for player to choose again -->
     display game round results based off of player chosen choice
         display count of rounds won per player
     display winner after 2 wins
-    display loser after 2 losses
