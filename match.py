@@ -1,17 +1,15 @@
 import random
+from player1 import Human
+from player2 import AI
 
 class Match:
     def __init__(self):
-        self.player1_name = ""
-        self.player2_name = ""
+        self.player1 = Human(input('What is your name? '))
+        self.player2 = AI('Armando')
+        
 
-
-    def gesture_list(self):
-        self.options = ['Rock', 'Paper', 'Scissors', 'Lizard', 'Spock']
-        return self.options
-
-    def player_choice(self):
-        choice = input('What do you choose? \nA) Rock \nB) Paper \nC) Scissors \nD) Lizard \nE) Spock \nPlease select A, B, C, D, or E:  ')
+    def player_choice(self, name):
+        choice = input(f'\n{name} what do you choose? \nA) Rock \nB) Paper \nC) Scissors \nD) Lizard \nE) Spock \nPlease select A, B, C, D, or E:  ')
         while True:
             if choice == 'A' or choice == 'a':
                 choice = self.options[0]
@@ -24,18 +22,44 @@ class Match:
             elif choice == 'E' or choice == 'e':
                 choice = self.options[4]
             if choice in self.options:
-                print(f"Player has chosen {choice}")
-                break
+                print(f"\n{name} has chosen {choice}\n")
+                return choice
             else:    
-                choice = input('Invalid choice, please try again. \nA) Rock \nB) Paper \nC) Scissors \nD) Lizard \nE) Spock \nPlease select A, B, C, D, or E:  ')
+                choice = input('Invalid choice, please try again. \nA) Rock \nB) Paper \nC) Scissors \nD) Lizard \nE) Spock \nPlease select A, B, C, D, or E:  ')      
+
         
     def play_round(self):
-        round_won = 0
-        while round_won < 2:
-            if player_1.choice == self.options[0]:
+        while self.player1.rounds_won < 2 and self.player2.rounds_won < 2:
+            print(f"\n{self.player1.name} has {self.player1.rounds_won} wins!\n{self.player2.name} has {self.player2.rounds_won} wins!\n")
+            self.player1.choice = self.player_choice(self.player1.name)
+            self.player2.choice = self.player_choice(self.player2.name)
+            if self.player1.choice == self.options[0] and (self.player2.choice == self.options[2] or self.player2.choice == self.options[3]):
+                self.player1.rounds_won += 1
+            elif self.player1.choice == self.options[1] and (self.player2.choice == self.options[0] or self.player2.choice == self.options[4]):
+                self.player1.rounds_won += 1
+            elif self.player1.choice == self.options[2] and (self.player2.choice == self.options[1] or self.player2.choice == self.options[3]):
+                self.player1.rounds_won += 1
+            elif self.player1.choice == self.options[3] and (self.player2.choice == self.options[1] or self.player2.choice == self.options[4]):
+                self.player1.rounds_won += 1
+            elif self.player1.choice == self.options[4] and (self.player2.choice == self.options[2] or self.player2.choice == self.options[0]):
+                self.player1.rounds_won += 1
+            elif self.player2.choice == self.options[0] and (self.player1.choice == self.options[2] or self.player1.choice == self.options[3]):
+                self.player2.rounds_won += 1
+            elif self.player2.choice == self.options[1] and (self.player1.choice == self.options[0] or self.player1.choice == self.options[4]):
+                self.player2.rounds_won += 1
+            elif self.player2.choice == self.options[2] and (self.player1.choice == self.options[1] or self.player1.choice == self.options[3]):
+                self.player2.rounds_won += 1
+            elif self.player2.choice == self.options[3] and (self.player1.choice == self.options[1] or self.player1.choice == self.options[4]):
+                self.player2.rounds_won += 1
+            elif self.player2.choice == self.options[4] and (self.player1.choice == self.options[2] or self.player1.choice == self.options[0]):
+                self.player2.rounds_won += 1        
                 
-        # self.gesture_list()
-        # self.player_choice()
+    def display_winner(self):
+        if self.player1.rounds_won == 2:
+            print(f"{self.player1.name} has endured the onslaught of RPSLS and has beaten {self.player2.name}!!\n{self.player1.name} wins {self.player1.rounds_won} rounds to {self.player2.rounds_won}.")
+        elif self.player1.rounds_won == 2:
+            print(f"{self.player2.name} has endured the onslaught of RPSLS and has beaten {self.player1.name}!!\n{self.player2.name} wins {self.player2.rounds_won} rounds to {self.player1.rounds_won}.")
+
 
         
     def display_welcome(self):
@@ -43,7 +67,7 @@ class Match:
         print("Welcome to RSPLS!")
         print("*----------------------------------*\n")
         print("The Rules of the game are as follows:\n")
-        print("Rock beats Scissors & Lizard!\nScissors beats Paper & Lizard!\nSpock beats Rock & Scissors!\nLizard beats Spock & Paper\nPaper beats Rock & Spock!\n")
+        print("Rock beats Scissors & Lizard!\nPaper beats Rock & Spock!\nScissors beats Paper & Lizard!\nLizard beats Spock & Paper\nSpock beats Rock & Scissors!\n")
         print("When either a Player or the AI wins a best 2 out of 3 rounds, they are the winners!\n ")
         
 
