@@ -1,31 +1,36 @@
 import random
-from player1 import Human
-from player2 import AI
+from human import Human
+from ai import AI
 
 class Match:
     def __init__(self):
-        self.player1 = Human(input('What is your name? '))
-        self.player2 = AI('Armando')
+        self.player1 = Human()
+        self.player2 = AI()
         
+    def run_game(self):
+        self.display_welcome()
+        
+        self.play_round()
+        self.display_winner()
 
-    def player_choice(self, name):
-        choice = input(f'\n{name} what do you choose? \nA) Rock \nB) Paper \nC) Scissors \nD) Lizard \nE) Spock \nPlease select A, B, C, D, or E:  ')
-        while True:
-            if choice == 'A' or choice == 'a':
-                choice = self.options[0]
-            elif choice == 'B' or choice == 'b':
-                choice = self.options[1]
-            elif choice == 'C' or choice == 'c':
-                choice = self.options[2]
-            elif choice == 'D' or choice == 'd':
-                choice = self.options[3]
-            elif choice == 'E' or choice == 'e':
-                choice = self.options[4]
-            if choice in self.options:
-                print(f"\n{name} has chosen {choice}\n")
-                return choice
-            else:    
-                choice = input('Invalid choice, please try again. \nA) Rock \nB) Paper \nC) Scissors \nD) Lizard \nE) Spock \nPlease select A, B, C, D, or E:  ')      
+    # def player_choice(self, name):
+    #     choice = input(f'\n{name} what do you choose? \nA) Rock \nB) Paper \nC) Scissors \nD) Lizard \nE) Spock \nPlease select A, B, C, D, or E:  ')
+    #     while True:
+    #         if choice == 'A' or choice == 'a':
+    #             choice = self.options[0]
+    #         elif choice == 'B' or choice == 'b':
+    #             choice = self.options[1]
+    #         elif choice == 'C' or choice == 'c':
+    #             choice = self.options[2]
+    #         elif choice == 'D' or choice == 'd':
+    #             choice = self.options[3]
+    #         elif choice == 'E' or choice == 'e':
+    #             choice = self.options[4]
+    #         if choice in self.options:
+    #             print(f"\n{name} has chosen {choice}\n")
+    #             return choice
+    #         else:    
+    #             choice = input('Invalid choice, please try again. \nA) Rock \nB) Paper \nC) Scissors \nD) Lizard \nE) Spock \nPlease select A, B, C, D, or E:  ')      
 
         
     def play_round(self):
