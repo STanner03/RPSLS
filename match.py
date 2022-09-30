@@ -9,19 +9,48 @@ class Match:
         self.options = ['Rock', 'Paper', 'Scissors', 'Lizard', 'Spock']
         
     def run_game(self):
-        self.display_welcome()
         self.game_type()
+        self.display_welcome()
         self.play_round()
         self.display_winner()
         self.credits()
 
     def display_welcome(self):
-        print("\n*-----------------------------------------------*")
-        print("Welcome to Rock, Paper, Scissors, Lizard, Spock!")
-        print("*-----------------------------------------------*\n")
-        print("The Rules of the game are as follows:\n")
-        print("Rock beats Scissors & Lizard!\nPaper beats Rock & Spock!\nScissors beats Paper & Lizard!\nLizard beats Spock & Paper\nSpock beats Rock & Scissors!\n")
-        print("When either a Player or the AI wins a best 2 out of 3 rounds, they are the winners!")
+        print(f"\n                   {self.player1.name}       VS       {self.player2.name}")
+        print("        *------------------------------------------------*")
+        print("         Welcome to Rock, Paper, Scissors, Lizard, Spock!")
+        print("        *------------------------------------------------*")
+        print("           ####                                    ####            ")
+        print("         #########                              #########          ")
+        print("         ##########                            ##########          ")
+        print("          ##########                          ##########           ")
+        print("           ##########                        ##########            ")
+        print("     #####  ##########                      ##########  #####      ")
+        print("   ######### ##########                    ########## #########    ")
+        print("   ########## ##########                  ########## ##########    ")
+        print("    ########## ##########                ########## ##########     ")
+        print("     ########## ##########              ########## ##########      ")
+        print("      ########## ##########            ########## ##########       ")
+        print("       ########## ##########          ########## ##########        ")
+        print("        ########## ##########        ########## ##########         ")
+        print("         ########## ##########      ########## ##########          ")
+        print("          ########## ##########    ########## ##########           ")
+        print("           #####################  #####################            ")
+        print("            ###########################################            ")
+        print("            ## The Rules of the game are as follows: ##            ")
+        print("            #######                              ######            ")
+        print("            ###### Rock beats Scissors & Lizard!  #####            ")
+        print("            ######   Paper beats Rock & Spock!    #####            ")
+        print("            ###### Scissors beats Paper & Lizard! #####            ")
+        print("            ######  Lizard beats Spock & Paper!   #####            ")
+        print("            ######  Spock beats Rock & Scissors!  #####            ")
+        print("            ########                            #######            ")
+        print("            ###########################################            ")
+        print("            ###########################################            ")
+        print("            ###########################################            ")
+        print("              #######################################              ")
+        print("                  ###############################                  ")
+        print("\nWhen either a Player or the AI wins a best 2 out of 3 rounds, they are the winners!")
         
     def play_round(self):
         while self.player1.rounds_won < 2 and self.player2.rounds_won < 2:
@@ -109,9 +138,12 @@ class Match:
                 print("That was an invalid choice, please try again.\n")
         
     def credits(self):
-        print("\n*----------------------------------------------------------*")
-        print("Thank you for playing Rock, Paper, Scissors, Lizard, Spock!")
-        print("*----------------------------------------------------------*\n")
+        print("\n###############################################################")
+        print("# *-_-`-_-`-_-`-_-`-_-`-_-`-_-`-_-`-_-`-_-`-_-`-_-`-_-`-_-`-* #")
+        print("# Thank you for playing Rock, Paper, Scissors, Lizard, Spock! #")
+        print("# *-`-_-`-_-`-_-`-_-`-_-`-_-`-_-`-_-`-_-`-_-`-_-`-_-`-_-`-_-* #")
+        print("###############################################################\n")
+        print("\nCo-Creators: Armando Beltran and Shane Tanner\n\nWe thank you for your time, and hope that you have enjoyed playing as much as we enjoyed co-creating!\n")
         play_again = input("Would you like to play again? Please enter Y for Yes or N for No\n")
         if play_again == 'y' or play_again == 'Y':
             self.player1.rounds_won = 0

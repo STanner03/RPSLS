@@ -14,7 +14,7 @@ class Human(Player):
             i += 1
             print(f'\n{i}) {gesture}')
         while True:
-            chosen_gesture = input('\nPlease choose a gesture from the list. Please enter one of the corresponding numbers! ')
+            chosen_gesture = input(f'\n{self.name}, please choose a gesture from the list. Please enter one of the corresponding numbers! ')
             if chosen_gesture == '1' or chosen_gesture == '2' or chosen_gesture == '3' or chosen_gesture == '4' or chosen_gesture == '5':
                 chosen_gesture = int(chosen_gesture) - 1
                 if chosen_gesture > -1 and chosen_gesture < 5:
