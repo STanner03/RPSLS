@@ -13,9 +13,15 @@ class Human(Player):
         for gesture in self.options:
             i += 1
             print(f'\n{i}) {gesture}')
-        chosen_gesture = input('\nPlease choose a gesture from the list. Please enter one of the corresponding numbers! ')
-        chosen_gesture = int(chosen_gesture) - 1
-        if chosen_gesture > -1 and chosen_gesture < 5:
-            self.choice = self.options[chosen_gesture]
-            print(f"\n{self.name} has chosen {self.choice}.\n")
-            return self.choice
+        while True:
+            chosen_gesture = input('\nPlease choose a gesture from the list. Please enter one of the corresponding numbers! ')
+            if chosen_gesture == '1' or chosen_gesture == '2' or chosen_gesture == '3' or chosen_gesture == '4' or chosen_gesture == '5':
+                chosen_gesture = int(chosen_gesture) - 1
+                if chosen_gesture > -1 and chosen_gesture < 5:
+                    self.choice = self.options[chosen_gesture]
+                    print(f"\n{self.name} has chosen {self.choice}.\n")
+                    return self.choice
+                # else:
+                #     print("Sorry that was an invalid entry.")
+                # print("Sorry that was an invalid entry.")
+                # break

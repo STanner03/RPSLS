@@ -50,7 +50,7 @@ class Match:
     def display_winner(self):
         if self.player1.rounds_won == 2:
             print(f"{self.player1.name} has endured the onslaught of RPSLS and has beaten {self.player2.name}!!\n{self.player1.name} wins {self.player1.rounds_won} rounds to {self.player2.rounds_won}.")
-        elif self.player1.rounds_won == 2:
+        elif self.player2.rounds_won == 2:
             print(f"{self.player2.name} has endured the onslaught of RPSLS and has beaten {self.player1.name}!!\n{self.player2.name} wins {self.player2.rounds_won} rounds to {self.player1.rounds_won}.")
 
 
