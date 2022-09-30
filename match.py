@@ -5,11 +5,12 @@ from ai import AI
 class Match:
     def __init__(self):
         self.player1 = Human()
-        self.player2 = AI()
+        self.player2 = ""
         self.options = ['Rock', 'Paper', 'Scissors', 'Lizard', 'Spock']
         
     def run_game(self):
         self.display_welcome()
+        self.game_type()
         self.play_round()
         self.display_winner()
 
@@ -53,4 +54,10 @@ class Match:
         elif self.player2.rounds_won == 2:
             print(f"{self.player2.name} has endured the onslaught of RPSLS and has beaten {self.player1.name}!!\n{self.player2.name} wins {self.player2.rounds_won} rounds to {self.player1.rounds_won}.")
 
-
+    def game_type(self):
+        answer = input("\nWould you like to play single-player against AI or multiplayer agsint another player?\nPlease select A) for AI or P) for Player: ")
+        if answer == 'P' or answer == 'p':
+            self.player2 = Human()
+        elif answer == 'A' or answer == 'a':
+            print('You will be playing single player mode against AI!')
+            self.player2 = AI()

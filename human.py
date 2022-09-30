@@ -5,7 +5,7 @@ class Human(Player):
 
 
     def set_name(self):
-        self.name = input("Please enter your name here: ")
+        self.name = input("Please enter Player's name here: ")
         
 
     def choose_gesture(self):
@@ -21,7 +21,3 @@ class Human(Player):
                     self.choice = self.options[chosen_gesture]
                     print(f"\n{self.name} has chosen {self.choice}.\n")
                     return self.choice
-                # else:
-                #     print("Sorry that was an invalid entry.")
-                # print("Sorry that was an invalid entry.")
-                # break
