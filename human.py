@@ -5,7 +5,7 @@ class Human(Player):
 
 
     def set_name(self):
-        self.name = input("Please enter Player's name here: ")
+        self.name = input("\nPlease enter Player's name here: ")
         
 
     def choose_gesture(self):

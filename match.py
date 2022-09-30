@@ -13,11 +13,12 @@ class Match:
         self.game_type()
         self.play_round()
         self.display_winner()
+        self.credits()
 
     def display_welcome(self):
-        print("\n*----------------------------------*")
-        print("Welcome to RSPLS!")
-        print("*----------------------------------*\n")
+        print("\n*-----------------------------------------------*")
+        print("Welcome to Rock, Paper, Scissors, Lizard, Spock!")
+        print("*-----------------------------------------------*\n")
         print("The Rules of the game are as follows:\n")
         print("Rock beats Scissors & Lizard!\nPaper beats Rock & Spock!\nScissors beats Paper & Lizard!\nLizard beats Spock & Paper\nSpock beats Rock & Scissors!\n")
         print("When either a Player or the AI wins a best 2 out of 3 rounds, they are the winners!")
@@ -29,35 +30,92 @@ class Match:
             self.player2.choice = self.player2.choose_gesture()
             if self.player1.choice == self.options[0] and (self.player2.choice == self.options[2] or self.player2.choice == self.options[3]):
                 self.player1.round_win()
+                if self.player2.choice == self.options[2]:
+                    print('Rock crushes Scissors!')
+                elif self.player2.choice == self.options[3]:
+                    print('Rock crushes Lizard!')
             elif self.player1.choice == self.options[1] and (self.player2.choice == self.options[0] or self.player2.choice == self.options[4]):
                 self.player1.round_win()
+                if self.player2.choice == self.options[0]:
+                    print('Paper covers Rock!')
+                elif self.player2.choice == self.options[4]:
+                    print('Paper disproves Spock!')
             elif self.player1.choice == self.options[2] and (self.player2.choice == self.options[1] or self.player2.choice == self.options[3]):
                 self.player1.round_win()
+                if self.player2.choice == self.options[1]:
+                    print('Scissors cuts Paper!')
+                elif self.player2.choice == self.options[3]:
+                    print('Scissors decapitates Lizard!')
             elif self.player1.choice == self.options[3] and (self.player2.choice == self.options[1] or self.player2.choice == self.options[4]):
                 self.player1.round_win()
+                if self.player2.choice == self.options[1]:
+                    print('Lizard eats Paper!')
+                elif self.player2.choice == self.options[4]:
+                    print('Lizard poisons Spock!')
             elif self.player1.choice == self.options[4] and (self.player2.choice == self.options[2] or self.player2.choice == self.options[0]):
                 self.player1.round_win()
+                if self.player2.choice == self.options[2]:
+                    print('Spock smashes Scissors!')
+                elif self.player2.choice == self.options[0]:
+                    print('Spock vaporizes Rock!')
             elif self.player2.choice == self.options[0] and (self.player1.choice == self.options[2] or self.player1.choice == self.options[3]):
                 self.player2.round_win()
+                if self.player1.choice == self.options[2]:
+                    print('Rock crushes Scissors!')
+                elif self.player1.choice == self.options[3]:
+                    print('Rock crushes Lizard!')
             elif self.player2.choice == self.options[1] and (self.player1.choice == self.options[0] or self.player1.choice == self.options[4]):
                 self.player2.round_win()
+                if self.player1.choice == self.options[0]:
+                    print('Paper covers Rock!')
+                elif self.player1.choice == self.options[4]:
+                    print('Paper disproves Spock!')
             elif self.player2.choice == self.options[2] and (self.player1.choice == self.options[1] or self.player1.choice == self.options[3]):
                 self.player2.round_win()
+                if self.player1.choice == self.options[1]:
+                    print('Scissors cuts Paper!')
+                elif self.player1.choice == self.options[3]:
+                    print('Scissors decapitates Lizard!')
             elif self.player2.choice == self.options[3] and (self.player1.choice == self.options[1] or self.player1.choice == self.options[4]):
                 self.player2.round_win()
+                if self.player1.choice == self.options[1]:
+                    print('Lizard eats Paper!')
+                elif self.player1.choice == self.options[4]:
+                    print('Lizard poisons Spock!')
             elif self.player2.choice == self.options[4] and (self.player1.choice == self.options[2] or self.player1.choice == self.options[0]):
-                self.player2.round_win()        
+                self.player2.round_win()
+                if self.player1.choice == self.options[2]:
+                    print('Spock smashes Scissors!')
+                elif self.player1.choice == self.options[0]:
+                    print('Spock vaporizes Rock!')        
                 
     def display_winner(self):
         if self.player1.rounds_won == 2:
-            print(f"{self.player1.name} has endured the onslaught of RPSLS and has beaten {self.player2.name}!!\n{self.player1.name} wins {self.player1.rounds_won} rounds to {self.player2.rounds_won}.")
+            print(f"\n{self.player1.name} has endured the onslaught of RPSLS and has beaten {self.player2.name}!!\n{self.player1.name} wins {self.player1.rounds_won} rounds to {self.player2.rounds_won}.")
         elif self.player2.rounds_won == 2:
-            print(f"{self.player2.name} has endured the onslaught of RPSLS and has beaten {self.player1.name}!!\n{self.player2.name} wins {self.player2.rounds_won} rounds to {self.player1.rounds_won}.")
+            print(f"\n{self.player2.name} has endured the onslaught of RPSLS and has beaten {self.player1.name}!!\n{self.player2.name} wins {self.player2.rounds_won} rounds to {self.player1.rounds_won}.")
 
     def game_type(self):
-        answer = input("\nWould you like to play single-player against AI or multiplayer agsint another player?\nPlease select A) for AI or P) for Player: ")
-        if answer == 'P' or answer == 'p':
-            self.player2 = Human()
-        elif answer == 'A' or answer == 'a':
-            print('You will be playing single player mode against AI!')
-            self.player2 = AI()
+        while True:
+            answer = input("\nWould you like to play single-player against AI or multiplayer agsint another player?\nPlease select A) for AI or P) for Player: ")
+            if answer == 'P' or answer == 'p':
+                self.player2 = Human()
+                break
+            elif answer == 'A' or answer == 'a':
+                print('\nYou will be playing single player mode against AI!')
+                self.player2 = AI()
+                break
+            else:
+                print("That was an invalid choice, please try again.\n")
+        
+    def credits(self):
+        print("\n*----------------------------------------------------------*")
+        print("Thank you for playing Rock, Paper, Scissors, Lizard, Spock!")
+        print("*----------------------------------------------------------*\n")
+        play_again = input("Would you like to play again? Please enter Y for Yes or N for No\n")
+        if play_again == 'y' or play_again == 'Y':
+            self.player1.rounds_won = 0
+            self.player2.rounds_won = 0
+            self.run_game()
+        else:
+            pass

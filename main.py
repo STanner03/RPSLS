@@ -1,8 +1,6 @@
 from match import Match
 
 
-test = Match()
+rpsls = Match()
 
-test.run_game()
-
-print("\nThanks for playing\n")
+rpsls.run_game()
